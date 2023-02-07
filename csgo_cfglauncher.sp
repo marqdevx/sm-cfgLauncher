@@ -48,7 +48,8 @@ Action Command_cfg_scrim(int client, int args)
 public
 Action Command_cfg_pracc(int client, int args)
 {
-    ServerCommand("exec pracc.cfg");
+    //ServerCommand("exec pracc.cfg");
+    Command_cfg_scrim(client, 0);
     PrintToChatAll("Practice mode");
     // PrintToChatAll("%N \x09has paused", client);
     // LogMessage("%L force paused the game", client);
@@ -71,6 +72,11 @@ Action Command_cfg_stopdemo(int client, int args)
 public
 void OnClientSayCommand_Post(int client, const char[] command, const char[] sArgs)
 {
+    if (!CheckCommandAccess(client, "sm_medic", ADMFLAG_GENERIC))
+    {
+      return;
+    }
+
     if (StrEqual(sArgs, ".practice", false))
     {
         Command_cfg_pracc(client, 0);
