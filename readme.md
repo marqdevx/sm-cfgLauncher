@@ -1,0 +1,1 @@
+![Compilation](https://github.com/marqdevx/sm-cfglauncher/actions/workflows/sourcemod-compile.yml/badge.svg)
